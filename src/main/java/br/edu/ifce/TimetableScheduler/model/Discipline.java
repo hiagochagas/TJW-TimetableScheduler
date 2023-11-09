@@ -1,12 +1,13 @@
 package br.edu.ifce.TimetableScheduler.model;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Discipline {
@@ -16,7 +17,9 @@ public class Discipline {
 	private String name;
 	private int semester;
 	@ManyToMany(mappedBy = "disciplines")
-	private Set<Professor> professors;
+	private List<Professor> professors;
+	@OneToMany(mappedBy = "discipline")
+	private List<Class> classes;
 
 	public Long getId() {
 		return id;
@@ -42,12 +45,19 @@ public class Discipline {
 		this.semester = semester;
 	}
 
-	public Set<Professor> getProfessors() {
+	public List<Professor> getProfessors() {
 		return professors;
 	}
 
-	public void setProfessors(Set<Professor> professors) {
+	public void setProfessors(List<Professor> professors) {
 		this.professors = professors;
 	}
 
+	public List<Class> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(List<Class> classes) {
+		this.classes = classes;
+	}
 }

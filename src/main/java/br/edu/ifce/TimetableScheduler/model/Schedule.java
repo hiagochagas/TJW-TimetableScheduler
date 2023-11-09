@@ -1,6 +1,6 @@
 package br.edu.ifce.TimetableScheduler.model;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ public class Schedule {
 	private String startTime;
 	private String endTime;
 	@ManyToMany(mappedBy = "preferredSchedules")
-	private Set<Professor> professors;
+	private List<Professor> professors;
 
 	public Long getId() {
 		return id;
@@ -51,11 +51,11 @@ public class Schedule {
 		this.endTime = endTime;
 	}
 
-	public Set<Professor> getProfessors() {
+	public List<Professor> getProfessors() {
 		return professors;
 	}
 
-	public void setProfessors(Set<Professor> professors) {
+	public void setProfessors(List<Professor> professors) {
 		this.professors = professors;
 	}
 }

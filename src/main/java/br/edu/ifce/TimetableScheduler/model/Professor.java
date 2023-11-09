@@ -1,6 +1,6 @@
 package br.edu.ifce.TimetableScheduler.model;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Professor {
@@ -18,10 +19,12 @@ public class Professor {
 	private String name;
 	@ManyToMany
 	@JoinTable(name = "professor_discipline", joinColumns = @JoinColumn(name = "professor_id"), inverseJoinColumns = @JoinColumn(name = "discipline_id"))
-	private Set<Discipline> disciplines;
+	private List<Discipline> disciplines;
 	@ManyToMany
 	@JoinTable(name = "professor_schedule", joinColumns = @JoinColumn(name = "professor_id"), inverseJoinColumns = @JoinColumn(name = "schedule_id"))
-	private Set<Schedule> preferredSchedules;
+	private List<Schedule> preferredSchedules;
+	@OneToMany(mappedBy = "professor")
+	private List<Class> classes;
 
 	public Long getId() {
 		return id;
@@ -39,20 +42,28 @@ public class Professor {
 		this.name = name;
 	}
 
-	public Set<Discipline> getDisciplines() {
+	public List<Discipline> getDisciplines() {
 		return disciplines;
 	}
 
-	public void setDisciplines(Set<Discipline> disciplines) {
+	public void setDisciplines(List<Discipline> disciplines) {
 		this.disciplines = disciplines;
 	}
 
-	public Set<Schedule> getPreferredSchedules() {
+	public List<Schedule> getPreferredSchedules() {
 		return preferredSchedules;
 	}
 
-	public void setPreferredSchedules(Set<Schedule> preferredSchedules) {
+	public void setPreferredSchedules(List<Schedule> preferredSchedules) {
 		this.preferredSchedules = preferredSchedules;
+	}
+
+	public List<Class> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(List<Class> classes) {
+		this.classes = classes;
 	}
 
 }
