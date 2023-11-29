@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.edu.ifce.TimetableScheduler.model.Schedule;
 import br.edu.ifce.TimetableScheduler.serviceImpl.ScheduleServiceImpl;
 
 @Controller
@@ -19,5 +20,11 @@ public class ScheduleController {
 	String listAll(ModelMap model) {
 		model.addAttribute("schedules", service.fetchAll());
 		return "/schedule/list";
+	}
+	
+	@GetMapping("/register")
+	String register(ModelMap model) {
+		model.addAttribute("schedule", new Schedule());
+		return "/schedule/register";
 	}
 }
