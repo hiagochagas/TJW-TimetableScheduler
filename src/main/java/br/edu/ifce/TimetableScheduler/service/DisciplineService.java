@@ -11,5 +11,7 @@ public interface DisciplineService {
 
 	List<Discipline> fetchAll();
 
-	Discipline editDiscipline(Long id, Discipline newDiscipline);
+	Discipline editDiscipline(Discipline newDiscipline);
+	
+	void deleteById(Long id);
 }

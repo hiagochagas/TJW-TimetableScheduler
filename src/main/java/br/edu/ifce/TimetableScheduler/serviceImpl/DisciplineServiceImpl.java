@@ -3,12 +3,14 @@ package br.edu.ifce.TimetableScheduler.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.edu.ifce.TimetableScheduler.exceptions.DisciplineNotFoundException;
 import br.edu.ifce.TimetableScheduler.model.Discipline;
 import br.edu.ifce.TimetableScheduler.repository.DisciplineRepository;
 import br.edu.ifce.TimetableScheduler.service.DisciplineService;
 
+@Service
 public class DisciplineServiceImpl implements DisciplineService {
 
 	@Autowired
@@ -30,12 +32,12 @@ public class DisciplineServiceImpl implements DisciplineService {
 	}
 	
 	@Override
-	public Discipline editDiscipline(Long id, Discipline newDiscipline) {
-		Discipline discipline = fetchDisciplineById(id);
-		discipline.setName(newDiscipline.getName());
-		discipline.setSemester(newDiscipline.getSemester());
-		discipline.setClasses(newDiscipline.getClasses());
-		discipline.setProfessors(newDiscipline.getProfessors());
-		return save(discipline);
+	public Discipline editDiscipline(Discipline newDiscipline) {
+		return save(newDiscipline);
+	}
+	
+	@Override
+	public void deleteById(Long id) {
+		repository.deleteById(id);
 	}
 }

@@ -3,12 +3,14 @@ package br.edu.ifce.TimetableScheduler.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.edu.ifce.TimetableScheduler.exceptions.ClassNotFoundException;
 import br.edu.ifce.TimetableScheduler.model.Class;
 import br.edu.ifce.TimetableScheduler.repository.ClassRepository;
 import br.edu.ifce.TimetableScheduler.service.ClassService;
 
+@Service
 public class ClassServiceImpl implements ClassService {
 
 	@Autowired

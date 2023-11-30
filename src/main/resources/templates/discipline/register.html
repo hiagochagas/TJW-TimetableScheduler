@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+
+</head>
+
+<body>
+	<section class="layout-content" layout:fragment="body">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Cadastrar Disciplina</span>
+					</li>
+				</ul>
+			</div>
+			<a class="btn btn-primary btn-md" href="/discipline/list" role="button"> <span class="oi oi-spreadsheet"
+					title="Cadastro" aria-hidden="true"></span> <span>Listar Disciplinas</span>
+			</a>
+		</nav>
+
+		<div class="container" id="cadastro">
+			<form th:action="${discipline.id == null} ? @{/discipline/save} : @{/discipline/edit}" method="POST"
+				th:object="${discipline}">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="name">Nome da Disciplina</label> <input type="text" class="form-control" id="name"
+							placeholder="Nome da Disciplina" autofocus="autofocus" name="name" th:field="*{name}" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="semester">Semestre</label> <input type="text" class="form-control" id="semester"
+							placeholder="Semestre" autofocus="autofocus" name="semester" th:field="*{semester}" />
+					</div>
+				</div>
+				<input type="hidden" id="id" th:field="*{id}" />
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+
+</html>
