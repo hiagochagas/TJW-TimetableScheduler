@@ -1,5 +1,52 @@
-<html layout:decorate="~{layout}"> 
-	
-	
-	
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+
+</head>
+
+<body>
+	<section class="layout-content" layout:fragment="body">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Cadastrar Horário</span>
+					</li>
+				</ul>
+			</div>
+			<a class="btn btn-primary btn-md" href="/schedule/list" role="button"> <span class="oi oi-spreadsheet"
+					title="Cadastro" aria-hidden="true"></span> <span>Listar Horários</span>
+			</a>
+		</nav>
+
+		<div class="container" id="cadastro">
+			<form th:action="${schedule.id == null} ? @{/schedule/save} : @{/schedule/edit}" method="POST"
+				th:object="${schedule}">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="dayOfTheWeek">Dia da Semana</label> <input type="text" class="form-control" id="dayOfTheWeek"
+							placeholder="Dia da Semana" autofocus="autofocus" name="dayOfTheWeek" th:field="*{dayName}" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="startTime">Horário de Início</label> <input type="text" class="form-control" id="startTime"
+							placeholder="Horário de Início" autofocus="autofocus" name="startTime" th:field="*{startTime}" />
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="endTime">Horário de Fim</label> <input type="text" class="form-control" id="endTime"
+							placeholder="Horário de Fim" autofocus="autofocus" name="endTime" th:field="*{endTime}" />
+					</div>
+				</div>
+				<input type="hidden" id="id" th:field="*{id}" />
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+			</form>
+		</div>
+	</section>
+</body>
+
 </html>

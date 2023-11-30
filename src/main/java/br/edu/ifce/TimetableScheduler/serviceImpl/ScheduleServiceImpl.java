@@ -33,13 +33,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public Schedule editSchedule(Long id, Schedule newSchedule) {
-		Schedule schedule = fetchScheduleById(id);
-		schedule.setDayName(newSchedule.getDayName());
-		schedule.setStartTime(newSchedule.getStartTime());
-		schedule.setEndTime(newSchedule.getEndTime());
-		schedule.setProfessors(newSchedule.getProfessors());
-		return save(schedule);
+	public Schedule editSchedule(Schedule newSchedule) {
+		return save(newSchedule);
 	}
 
+	@Override
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
 }

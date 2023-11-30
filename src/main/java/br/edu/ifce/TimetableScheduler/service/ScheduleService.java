@@ -11,5 +11,7 @@ public interface ScheduleService {
 
 	List<Schedule> fetchAll();
 
-	Schedule editSchedule(Long id, Schedule newSchedule);
+	Schedule editSchedule(Schedule newSchedule);
+	
+	void deleteById(Long id);
 }
