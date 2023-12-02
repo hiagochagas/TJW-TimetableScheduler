@@ -66,4 +66,8 @@ public class Professor {
 		this.classes = classes;
 	}
 
+	public void removeDiscipline(Discipline discipline) {
+		this.disciplines.remove(discipline);
+		discipline.getProfessors().remove(this);
+	}
 }

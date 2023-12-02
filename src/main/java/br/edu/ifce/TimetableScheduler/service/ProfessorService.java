@@ -11,5 +11,7 @@ public interface ProfessorService {
 
 	List<Professor> fetchAll();
 
-	Professor editProfessor(Long id, Professor newProfessor);
+	Professor editProfessor(Professor newProfessor);
+	
+	void deleteById(Long id);
 }

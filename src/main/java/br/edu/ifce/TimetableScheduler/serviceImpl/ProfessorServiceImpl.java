@@ -32,13 +32,11 @@ public class ProfessorServiceImpl implements ProfessorService {
 	}
 
 	@Override
-	public Professor editProfessor(Long id, Professor newProfessor) {
-		Professor professor = fetchProfessorById(id);
-		professor.setName(newProfessor.getName());
-		professor.setPreferredSchedules(newProfessor.getPreferredSchedules());
-		professor.setClasses(newProfessor.getClasses());
-		professor.setDisciplines(newProfessor.getDisciplines());
-		return save(professor);
+	public Professor editProfessor(Professor newProfessor) {
+		return save(newProfessor);
 	}
 
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
 }

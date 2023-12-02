@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.PreRemove;
 
 @Entity
 public class Discipline {
@@ -18,8 +18,6 @@ public class Discipline {
 	private int semester;
 	@ManyToMany(mappedBy = "disciplines")
 	private List<Professor> professors;
-	@OneToMany(mappedBy = "discipline")
-	private List<Class> classes;
 
 	public Long getId() {
 		return id;
@@ -53,11 +51,10 @@ public class Discipline {
 		this.professors = professors;
 	}
 
-	public List<Class> getClasses() {
-		return classes;
-	}
-
-	public void setClasses(List<Class> classes) {
-		this.classes = classes;
+	@PreRemove
+	private void removeFromProfessors() {
+		for (Professor professor : this.professors) {
+			professor.getDisciplines().remove(this);
+		}
 	}
 }

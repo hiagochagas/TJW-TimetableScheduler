@@ -20,12 +20,12 @@
 <link href="/css/style.css" rel="stylesheet" />
 </head>
 <body>
-	<header th:replace="fragments/header :: header"> </header>
+	<header th:replace="~{fragments/header :: header}"> </header>
 
 	<div class="layout-main">
 
 		<aside>
-			<nav th:replace="fragments/sidebar :: nav-sidebar">
+			<nav th:replace="~{fragments/sidebar :: nav-sidebar}">
 			
 			</nav>
 		</aside>
@@ -35,7 +35,7 @@
 		</section>
 
 	</div>
-	<footer th:replace="fragments/footer :: footer"> </footer>
+	<footer th:replace="~{fragments/footer :: footer}"> </footer>
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->

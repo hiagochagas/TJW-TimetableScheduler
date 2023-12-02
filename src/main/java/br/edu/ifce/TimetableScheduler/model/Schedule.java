@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PreRemove;
 
 @Entity
 public class Schedule {
@@ -57,5 +58,12 @@ public class Schedule {
 
 	public void setProfessors(List<Professor> professors) {
 		this.professors = professors;
+	}
+	
+	@PreRemove
+	private void removeFromProfessors() {
+		for (Professor professor: this.professors) {
+			professor.getPreferredSchedules().remove(this);
+		}
 	}
 }
