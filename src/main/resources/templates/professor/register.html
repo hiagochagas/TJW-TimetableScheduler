@@ -32,19 +32,20 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="disciplines">Disciplinas:</label>
-						<select id="disciplines" name="disciplines" multiple th:field="*{disciplines}">
-							<option th:each="discipline : ${allDisciplines}" th:value="${discipline.id}"
+						<label for="disciplines">Disciplinas:</label><br>
+						<select id="disciplines" name="disciplines" multiple="multiple" th:field="*{disciplines}">
+							<option th:each="discipline : ${allDisciplines}" th:value="${{discipline}}"
 								th:text="${discipline.name}"></option>
 						</select>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="schedules">Horários disponíveis:</label>
-						<select id="schedules" name="schedules" multiple th:field="*{preferredSchedules}">
-							<option th:each="schedule : ${allSchedules}" th:value="${schedule.id}"
-								th:text="${schedule.dayName + ' de ' + schedule.startTime + ' até ' + schedule.endTime}"></option>
+						<label for="schedules">Horários disponíveis:</label><br>
+						<select id="schedules" name="schedules" multiple="multiple" th:field="*{preferredSchedules}">
+							<option th:each="schedule : ${allSchedules}" th:value="${{schedule}}"
+								th:text="${schedule.dayName + ' de ' + schedule.startTime + ' até ' + schedule.endTime}">
+							</option>
 						</select>
 					</div>
 				</div>
