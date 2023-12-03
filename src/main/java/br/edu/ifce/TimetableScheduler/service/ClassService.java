@@ -12,4 +12,6 @@ public interface ClassService {
 	List<Class> fetchAll();
 
 	Class editClass(Long id, Class newClass);
+	
+	void deleteAll();
 }

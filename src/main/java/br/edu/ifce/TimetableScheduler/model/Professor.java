@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PreRemove;
 
 @Entity
 public class Professor {
@@ -69,5 +70,12 @@ public class Professor {
 	public void removeDiscipline(Discipline discipline) {
 		this.disciplines.remove(discipline);
 		discipline.getProfessors().remove(this);
+	}
+	
+	@PreRemove
+	private void removeFromClasses() {
+		for (Class c: this.classes) {
+			c.setProfessor(null);
+		}
 	}
 }

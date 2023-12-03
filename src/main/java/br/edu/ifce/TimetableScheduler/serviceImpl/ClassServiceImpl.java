@@ -40,4 +40,9 @@ public class ClassServiceImpl implements ClassService {
 		return save(c);
 	}
 
+	@Override
+	public void deleteAll() {
+		repository.deleteAll();
+	}
+	
 }

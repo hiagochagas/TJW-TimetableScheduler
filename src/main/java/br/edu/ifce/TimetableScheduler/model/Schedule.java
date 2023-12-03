@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PreRemove;
 
 @Entity
@@ -19,6 +20,8 @@ public class Schedule {
 	private String endTime;
 	@ManyToMany(mappedBy = "preferredSchedules")
 	private List<Professor> professors;
+	@OneToMany(mappedBy="schedule")
+	private List<Class> classes;
 
 	public Long getId() {
 		return id;
@@ -60,10 +63,29 @@ public class Schedule {
 		this.professors = professors;
 	}
 	
+	public List<Class> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(List<Class> classes) {
+		this.classes = classes;
+	}
+
 	@PreRemove
+	private void removeFromOtherTables() {
+		removeFromProfessors();
+		removeFromClasses();
+	}
+	
 	private void removeFromProfessors() {
 		for (Professor professor: this.professors) {
 			professor.getPreferredSchedules().remove(this);
+		}
+	}
+	
+	private void removeFromClasses() {
+		for (Class c: this.classes) {
+			c.setSchedule(null);
 		}
 	}
 }
