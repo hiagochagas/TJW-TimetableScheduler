@@ -149,7 +149,9 @@ public class ClassController {
                 if (i == j || i > j) {
                     continue;
                 }
-                if (classes.get(i).equals(classes.get(j))) {
+                Class c1 = classes.get(i);
+                Class c2 = classes.get(j);
+                if (c1.getProfessor() == c2.getProfessor() || c1.getDiscipline() == c2.getDiscipline()) {
                     graph[i][j] = 1;
                     graph[j][i] = 1;
                 }
