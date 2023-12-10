@@ -17,4 +17,14 @@ public class HomeController {
 		model.addAttribute("classes", service.fetchAll());
 		return "home";
 	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	@GetMapping("/logout")
+	public String logout() {
+		return "logout";
+	}
 }

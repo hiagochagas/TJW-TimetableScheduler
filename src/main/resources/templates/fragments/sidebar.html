@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 </head>
+
 <body>
-<nav class="sidebar sidebar-open" th:fragment = "nav-sidebar">
-				<ul class="nav nav-pills">
-					<li class="nav-item"><a class="nav-link " href="/"> <i
-							class="oi oi-home"></i> <span>Home</span>
-					</a></li>
-				</ul>
+	<nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
+		<ul class="nav nav-pills">
+			<li class="nav-item"><a class="nav-link " href="/"> <i class="oi oi-home"></i> <span>Home</span>
+				</a></li>
+		</ul>
 
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" >Professores</span></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/professor/register"> <i class="oi oi-plus"></i> <span>Cadastrar</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/professor/list"> <i class="oi oi-spreadsheet"></i>
-							<span>Listar </span>
-					</a></li>
-				</ul>
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Professores</span></li>
+			<li class="nav-item"><a class="nav-link" href="/professor/register"> <i class="oi oi-plus"></i>
+					<span>Cadastrar</span>
+				</a></li>
+			<li class="nav-item"><a class="nav-link" href="/professor/list"> <i class="oi oi-spreadsheet"></i>
+					<span>Listar </span>
+				</a></li>
+		</ul>
 
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" >Disciplinas</span></li>
-					<li class="nav-item"><a class="nav-link" 
-						href="/discipline/register"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" 
-						href="/discipline/list"> <i
-							class="oi oi-spreadsheet"></i> <span>Listar </span>
-					</a></li>
-				</ul>
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Disciplinas</span></li>
+			<li class="nav-item"><a class="nav-link" href="/discipline/register"> <i class="oi oi-plus"></i>
+					<span>Cadastrar </span>
+				</a></li>
+			<li class="nav-item"><a class="nav-link" href="/discipline/list"> <i class="oi oi-spreadsheet"></i>
+					<span>Listar </span>
+				</a></li>
+		</ul>
 
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active">Horários</span></li>
-					<li class="nav-item"><a class="nav-link" 
-						href="/schedule/register"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" 
-						href="/schedule/list"> <i class="oi oi-spreadsheet"></i> <span>Listar </span>
-					</a></li>
-				</ul>
-			</nav>
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Horários</span></li>
+			<li class="nav-item"><a class="nav-link" href="/schedule/register"> <i class="oi oi-plus"></i>
+					<span>Cadastrar </span>
+				</a></li>
+			<li class="nav-item"><a class="nav-link" href="/schedule/list"> <i class="oi oi-spreadsheet"></i>
+					<span>Listar </span>
+				</a></li>
+		</ul>
+
+		<ul class="nav nav-pills">
+			<li class="nav-item"><a class="nav-link " href="/logout"> <i class="oi oi-account-logout"></i> <span>Sair</span>
+				</a></li>
+		</ul>
+	</nav>
 
 </body>
+
 </html>

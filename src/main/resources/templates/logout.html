@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Logout</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom styles for this template -->
+	<link href="/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="layout-main">
+		<div class="layout-content">
+			<div class="container">
+				<div class="logout-message">
+					<h2>Sair</h2>
+					<p>Você foi deslogado com sucesso.</p>
+					<p><a th:href="@{/login}">Logar novamente</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="~{fragments/footer :: footer}"> </footer>
+</body>
+
+</html>
