@@ -20,9 +20,6 @@ public class TimetableSchedulerApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		User user = new User();
-		user.setLogin("user");
-		user.setPassword("$2a$12$zJOMr1qiPAsN2d4GoE4TSeJq.AVzQb5Zco6m5JmF7QuYSC8X4jAXu");
-		service.save(user);
+
 	}
 }

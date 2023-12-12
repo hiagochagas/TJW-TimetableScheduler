@@ -74,6 +74,10 @@ td {
 .container {
 	width: 100%;
 	padding-top: 20px;
+	text-align: left;
+}
+
+.container-centered {
 	text-align: center;
 }
 
@@ -168,6 +172,15 @@ td {
 
 .login-form {
     width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-form {
+    width: 400px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;

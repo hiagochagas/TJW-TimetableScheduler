@@ -15,13 +15,14 @@
 <body>
 	<div class="layout-main">
 		<div class="layout-content">
-			<div class="container">
+			<div class="container-centered">
 				<div class="login-form">
 					<h2>Login</h2>
 					<form th:action="@{/login}" method="post">
-						<input type="text" name="username" placeholder="Username" required>
-						<input type="password" name="password" placeholder="Password" required>
+						<input type="text" name="username" placeholder="Login" required>
+						<input type="password" name="password" placeholder="Senha" required>
 						<button type="submit">Login</button>
+						<p><a th:href="@{/signup}">Cadastrar</a></p>
 					</form>
 				</div>
 			</div>
